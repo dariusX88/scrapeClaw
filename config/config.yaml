@@ -1,0 +1,28 @@
+# ScrapeClaw - Global Configuration
+# Environment variables with prefix SCRAPECLAW_ override these values.
+
+scraper:
+  rate_limit:
+    delay_sec: 1.5
+    max_retries: 3
+    retry_wait_min: 1.0
+    retry_wait_max: 5.0
+  proxy:
+    enabled: false
+    urls: []
+
+claude:
+  model: claude-sonnet-4-20250514
+  max_tokens: 4096
+
+output:
+  dir: ./output
+  excel_theme:
+    header_color: "1A3A5C"
+    header_font_color: "FFFFFF"
+    alt_row_color: "EBF2FA"
+    accent_color: "2980B9"
+    border_color: "B0C4D8"
+
+logging:
+  level: INFO

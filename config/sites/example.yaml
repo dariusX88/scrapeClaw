@@ -1,0 +1,33 @@
+# Example site configuration
+# Copy and modify for your target website.
+# Usage: python main.py scrape example
+
+name: example
+base_url: https://books.toscrape.com
+start_url: https://books.toscrape.com/catalogue/page-1.html
+allowed_domains:
+  - books.toscrape.com
+max_pages: 10
+max_entries: 50
+js_required: false
+
+rate_limit:
+  delay_sec: 1.0
+
+css_selectors:
+  title: h3 a
+  price: .price_color
+  availability: .availability
+
+custom_headers:
+  Accept-Language: en-US,en;q=0.9
+
+extraction:
+  fields:
+    title: "Book title"
+    price: "Price as number without currency symbol"
+    rating: "Star rating (1-5)"
+    availability: "In stock or out of stock"
+    url: "Direct link to the book detail page"
+  output_format: json
+  max_tokens: 2048
