@@ -10,6 +10,8 @@ Crawl any website, extract structured data using Claude AI, and get a beautifull
 # Clone and install
 git clone https://github.com/dariusX88/scrapeClaw.git
 cd scrapeClaw
+python3 -m venv .venv
+source .venv/bin/activate
 pip install -e .
 
 # Add your Anthropic API key
@@ -28,18 +30,16 @@ scrapeclaw scrape example --max-pages 3
 curl -fsSL https://raw.githubusercontent.com/dariusX88/scrapeClaw/main/install.sh | bash
 ```
 
+This creates a virtual environment in `scrapeClaw/.venv/` and installs everything there.
+
 ### Option 2: Manual install
 
 ```bash
 git clone https://github.com/dariusX88/scrapeClaw.git
 cd scrapeClaw
+python3 -m venv .venv
+source .venv/bin/activate
 pip install -e .
-```
-
-### Option 3: Install directly from GitHub
-
-```bash
-pip install git+https://github.com/dariusX88/scrapeClaw.git
 ```
 
 ### Setup
@@ -51,6 +51,8 @@ cp .env.example .env
 ```
 
 Edit `.env` and set `ANTHROPIC_API_KEY` to your key from [console.anthropic.com](https://console.anthropic.com/).
+
+After installation, you can run commands either by activating the venv first (`source .venv/bin/activate`) or directly via `.venv/bin/scrapeclaw`.
 
 ## Usage
 

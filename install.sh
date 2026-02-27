@@ -27,9 +27,17 @@ fi
 
 cd scrapeClaw
 
-# Install
+# Create virtual environment
+if [ ! -d ".venv" ]; then
+    echo "  Creating virtual environment..."
+    python3 -m venv .venv
+else
+    echo "  Virtual environment already exists."
+fi
+
+# Activate and install
 echo "  Installing dependencies..."
-pip3 install -e . --quiet
+.venv/bin/pip install -e . --quiet
 
 # Setup .env
 if [ ! -f ".env" ]; then
@@ -44,8 +52,12 @@ echo "  Installation complete!"
 echo ""
 echo "  Usage:"
 echo "    cd scrapeClaw"
+echo "    .venv/bin/scrapeclaw scrape example --max-pages 3"
+echo ""
+echo "  Or activate the virtual environment first:"
+echo "    source .venv/bin/activate"
 echo "    scrapeclaw scrape example --max-pages 3"
 echo ""
-echo "  Or scrape any URL:"
-echo "    scrapeclaw scrape-url https://example.com -f \"title,price\""
+echo "  Quick single-URL scrape:"
+echo "    .venv/bin/scrapeclaw scrape-url https://example.com -f \"title,price\""
 echo ""
